@@ -29,6 +29,10 @@ namespace ConsoleApplication1
             endpointConfiguration.SendFailedMessagesTo("error");
             endpointConfiguration.EnableInstallers();
 
+            var routing = endpointConfiguration.UseTransport<MsmqTransport>().Routing();
+
+            routing.RouteToEndpoint(typeof(PlaceOrder), "Sales");
+
             var endpointInstance = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);
             
             await RunLoop(endpointInstance);
@@ -57,7 +61,7 @@ namespace ConsoleApplication1
                         // Send the command to the local endpoint
                         _Logger.Info($"Sending PlaceOrder command, OrderId = {command.OrderId}");
 
-                        await endpointInstance.SendLocal(command).ConfigureAwait(false);
+                        await endpointInstance.Send(command).ConfigureAwait(false);
 
                         break;
 
