@@ -14,10 +14,7 @@ namespace ConsoleApplication2
         {
             _Logger.Info($"Received PlaceOrder, OrderId = {message.OrderId}");
 
-            var orderPlaced = new OrderPlaced()
-                                  {
-                                      OrderId = message.OrderId
-                                  };
+            var orderPlaced = new OrderPlaced() { OrderId = message.OrderId };
 
             return context.Publish(orderPlaced);
         }
