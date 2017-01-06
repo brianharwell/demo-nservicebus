@@ -26,7 +26,7 @@ namespace ConsoleApplication4
 
             routing.RegisterPublisher(typeof(OrderPlaced), "Sales");
             routing.RegisterPublisher(typeof(OrderBilled), "Billing");
-
+            
             var endpointInstance = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);
 
             Console.WriteLine("Press Enter to exit.");

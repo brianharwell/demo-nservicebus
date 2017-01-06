@@ -7,15 +7,15 @@ using Shared;
 
 namespace ConsoleApplication4
 {
-    public class OrderPlacedHandler :IHandleMessages<OrderPlaced>
-    {
-        private static ILog _Logger = LogManager.GetLogger<OrderPlacedHandler>();
+    //public class OrderPlacedHandler : IHandleMessages<OrderPlaced>
+    //{
+    //    private static ILog _Logger = LogManager.GetLogger<OrderPlacedHandler>();
 
-        public Task Handle(OrderPlaced message, IMessageHandlerContext context)
-        {
-            _Logger.Info($"Order Placed, OrderId = {message.OrderId} - Should we ship?");
+    //    public Task Handle(OrderPlaced message, IMessageHandlerContext context)
+    //    {
+    //        _Logger.Info($"Order Placed, OrderId = {message.OrderId} - Should we ship?");
 
-            return Task.CompletedTask;
-        }
-    }
+    //        return Task.CompletedTask;
+    //    }
+    //}
 }
